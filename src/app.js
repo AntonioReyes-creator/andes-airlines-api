@@ -1,17 +1,18 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-const express = require('express');
-const morgan = require('morgan');
-const flightsRouter = require('./routes/flights');
-const error = require('./middlewares/error');
+import express, { json } from 'express';
+import morgan from 'morgan';
+import flightsRouter from './routes/flights.js';
+import error from './middlewares/error.js';
 
 const app = express();
 
-app.use(express.json());
+app.use(json());
 app.use(morgan('dev'));
 
 // salud
-app.get('/health', (_req, res) => res.json({ status: 'ok' }));
+app.get('/health', (req, res) => res.json({ status: 'oki doki' }));
 
 // rutas del ejercicio
 app.use('/flights', flightsRouter);

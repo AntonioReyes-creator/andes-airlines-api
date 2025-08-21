@@ -1,4 +1,4 @@
-const { query } = require('../db/pool');
+import { query } from '../db/pool.js';
 
 // Obtener todos los asientos del avión (por clase)
 async function getSeatsByAirplaneId(airplaneId) {
@@ -38,4 +38,4 @@ function areAdjacent(seatA, seatB) {
   return Math.abs(colA - colB) === 1; // ej: 'A'(65) y 'B'(66)
 }
 
-module.exports = { getSeatsByAirplaneId, buildSeatMap, areAdjacent };
+export { getSeatsByAirplaneId, buildSeatMap, areAdjacent };

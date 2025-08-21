@@ -1,4 +1,4 @@
-const { query } = require('../db/pool');
+import { query } from '../db/pool.js';
 
 // Traer datos del vuelo
 async function getFlightById(flightId) {
@@ -26,4 +26,4 @@ async function getPassengersByFlightId(flightId) {
   return rows;
 }
 
-module.exports = { getFlightById, getPassengersByFlightId };
+export { getFlightById, getPassengersByFlightId };

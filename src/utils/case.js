@@ -10,4 +10,4 @@ function keysToCamel(input) {
   return input;
 }
 
-module.exports = { keysToCamel };
+export { keysToCamel };

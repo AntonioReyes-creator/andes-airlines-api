@@ -1,9 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const { getFlightById, getPassengersByFlightId } = require('../repositories/flights');
-const { getSeatsByAirplaneId } = require('../services/seatAssignment');
-const { assignSeats } = require('../services/assignPassengers');
-const { keysToCamel } = require('../utils/case');
+import { Router } from 'express';
+import { getFlightById, getPassengersByFlightId } from '../repositories/flights.js';
+import { getSeatsByAirplaneId } from '../services/seatAssignment.js';
+import { assignSeats } from '../services/assignPassengers.js';
+import { keysToCamel } from '../utils/case.js';
+
+const router = Router();
 
 // GET /flights/:id/passengers
 router.get('/:id/passengers', async (req, res, next) => {
@@ -20,7 +21,7 @@ router.get('/:id/passengers', async (req, res, next) => {
     let passengers = await getPassengersByFlightId(flightId);
     const seats = await getSeatsByAirplaneId(flight.airplane_id);
 
-      // Asignar asientos (respetando existentes)
+    // Asignar asientos (respetando existentes)
     passengers = assignSeats(passengers, seats);
 
     // 3) Convertir a camelCase (vuelo + pasajeros)
@@ -55,4 +56,4 @@ router.get('/:id/passengers', async (req, res, next) => {
   }
 });
 
-module.exports = router;
+export default router;

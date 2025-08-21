@@ -1,10 +1,9 @@
 {
   "name": "andes-airlines-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-
-  "type": "commonjs",
+  "description": "API de vuelos para Andes Airlines",
+  "main": "src/app.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon src/app.js",
     "start": "node src/app.js",
@@ -17,7 +16,7 @@
     "url": "git+https://github.com/AntonioReyes-creator/andes-airlines-api.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Antonio Reyes",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AntonioReyes-creator/andes-airlines-api/issues"

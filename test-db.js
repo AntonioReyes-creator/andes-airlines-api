@@ -1,5 +1,7 @@
-require('dotenv').config();
-const { query } = require('./src/db/pool');
+import dotenv from 'dotenv';
+dotenv.config();
+
+import { query } from './src/db/pool.js';
 
 (async () => {
   try {

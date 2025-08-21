@@ -1,4 +1,4 @@
-const { buildSeatMap, areAdjacent } = require('./seatAssignment');
+import { buildSeatMap, areAdjacent } from './seatAssignment.js';
 
 // Asigna asientos a pasajeros de un vuelo
 function assignSeats(passengers, seats) {
@@ -93,4 +93,4 @@ function removeFromArray(arr, seatId) {
   if (idx !== -1) arr.splice(idx, 1);
 }
 
-module.exports = { assignSeats };
+export { assignSeats };

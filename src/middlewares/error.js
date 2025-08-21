@@ -1,4 +1,4 @@
-module.exports = (err, _req, res, _next) => {
+export default (err, req, res, next) => {
   console.error(err);
   // El enunciado pide este shape en caso de error:
   // { "code": 400, "errors": "could not connect to db" }
