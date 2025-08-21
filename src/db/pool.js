@@ -16,8 +16,10 @@ const pool = mysql.createPool({
   enableKeepAlive: true,
   keepAliveInitialDelay: 0
 });
-console.log('DB_USER:', process.env.DB_USER);
-console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
+console.log('🌐 DB_HOST:', process.env.DB_HOST);
+console.log('👤 DB_USER:', process.env.DB_USER);
+console.log('🔑 DB_PASSWORD:', process.env.DB_PASSWORD);
+
 
 // Helper de consulta con pequeño retry ante cortes por inactividad
 async function query(sql, params = [], retries = 1) {
