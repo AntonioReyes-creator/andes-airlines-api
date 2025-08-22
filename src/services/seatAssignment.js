@@ -1,13 +1,13 @@
 import { query } from '../db/pool.js';
 
-// Obtener todos los asientos del avión (por clase)
+// Obtener todos los asientos del avión (por clase 1-primium-ec)
 async function getSeatsByAirplaneId(airplaneId) {
   const rows = await query(
     `SELECT seat_id, seat_column, seat_row, seat_type_id
-     FROM seat
-     WHERE airplane_id = ?
-     ORDER BY seat_row ASC, seat_column ASC`,
-    [airplaneId]
+            FROM seat
+            WHERE airplane_id = ?
+            ORDER BY seat_row ASC, seat_column ASC`,
+            [airplaneId]
   );
   return rows;
 }
@@ -30,12 +30,11 @@ function buildSeatMap(seats) {
   return seatMap;
 }
 
-// Chequear si dos asientos son contiguos en la misma fila (ej. A-B o E-F)
+// Chequear si dos asientos son contiguos en la misma fila ( A-B o E-F)
 function areAdjacent(seatA, seatB) {
   if (seatA.seat_row !== seatB.seat_row) return false;
   const colA = seatA.seat_column.charCodeAt(0);
   const colB = seatB.seat_column.charCodeAt(0);
-  return Math.abs(colA - colB) === 1; // ej: 'A'(65) y 'B'(66)
-}
+  return Math.abs(colA - colB) === 1;}
 
 export { getSeatsByAirplaneId, buildSeatMap, areAdjacent };

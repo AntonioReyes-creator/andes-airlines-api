@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { getFlightById, getPassengersByFlightId } from '../repositories/flights.js';
 import { getSeatsByAirplaneId } from '../services/seatAssignment.js';
 import { assignSeats } from '../services/assignPassengers.js';
-import { keysToCamel } from '../utils/case.js';
+import { keysToCamel } from '../utils/camelCase.js';
 
 const router = Router();
 

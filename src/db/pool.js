@@ -9,17 +9,16 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+
+  
   waitForConnections: true,
   connectionLimit: Number(process.env.POOL_MAX || 10),
   queueLimit: 0,
-  // Mantiene viva la conexión TCP para reducir "server has gone away"
+
+  // Esto ayuda a que no se corte la conexión por inactividad
   enableKeepAlive: true,
   keepAliveInitialDelay: 0
 });
-console.log('🌐 DB_HOST:', process.env.DB_HOST);
-console.log('👤 DB_USER:', process.env.DB_USER);
-console.log('🔑 DB_PASSWORD:', process.env.DB_PASSWORD);
-
 
 // Helper de consulta con pequeño retry ante cortes por inactividad
 async function query(sql, params = [], retries = 1) {

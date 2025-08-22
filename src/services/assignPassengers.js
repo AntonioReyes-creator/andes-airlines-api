@@ -1,4 +1,4 @@
-import { buildSeatMap, areAdjacent } from './seatAssignment.js';
+import { buildSeatMap, areAdjacent } from "./seatAssignment.js";
 
 // Asigna asientos a pasajeros de un vuelo
 function assignSeats(passengers, seats) {
@@ -11,7 +11,8 @@ function assignSeats(passengers, seats) {
   // Agrupar pasajeros por clase
   const passengersByClass = {};
   passengers.forEach((p) => {
-    if (!passengersByClass[p.seat_type_id]) passengersByClass[p.seat_type_id] = [];
+    if (!passengersByClass[p.seat_type_id])
+      passengersByClass[p.seat_type_id] = [];
     passengersByClass[p.seat_type_id].push(p);
   });
 

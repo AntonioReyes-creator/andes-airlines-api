@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { query } from './src/db/pool.js';
+import { query } from '../db/pool.js';
 
 (async () => {
   try {

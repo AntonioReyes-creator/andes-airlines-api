@@ -3,7 +3,7 @@ dotenv.config();
 
 import express, { json } from 'express';
 import morgan from 'morgan';
-import flightsRouter from './routes/flights.js';
+import flightsRouter from './routes/flights.routes.js';
 import error from './middlewares/error.js';
 
 const app = express();
